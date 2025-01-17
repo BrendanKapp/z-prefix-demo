@@ -1,0 +1,71 @@
+@import '../colors.css';
+
+/* Container for the item list */
+.item-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Title styling */
+.item-list-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+/* List styling */
+.item-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Styling for individual item cards */
+.item-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for item cards */
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Link styling */
+.item-link {
+  display: block;
+  padding: 16px;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Title of each item */
+.item-name {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* Description text styling */
+.item-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .item-list-title {
+    font-size: 2rem;
+  }
+}
