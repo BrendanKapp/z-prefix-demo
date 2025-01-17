@@ -33,7 +33,7 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/add-item" element={<PrivateRoute element={<ItemForm />} />} />
-        <Route path="/edit-item/:id" element={<PrivateRoute><ItemForm /></PrivateRoute>} />
+        <Route path="/edit-item/:id" element={<PrivateRoute element={<ItemDetail />} />} />
       </Routes>
     </Router>
   );
