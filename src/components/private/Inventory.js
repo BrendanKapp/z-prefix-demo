@@ -31,7 +31,7 @@ const Inventory = () => {
 
   return (
     <div className="inventory-container">
-      <h1 className="inventory-title">My Items</h1>
+      <h1 className="inventory-title">My Inventory</h1>
       <Link to={`/add-item`} className="add-item-button">Add Item</Link>
       <ul className="inventory-list">
         {items.length > 0 ? (
@@ -46,7 +46,7 @@ const Inventory = () => {
             </li>
           ))
         ) : (
-          <p className="no-items-message">You don't have any items.</p>
+          <p className="no-items-message">Your inventory is empty.</p>
         )}
       </ul>
     </div>
