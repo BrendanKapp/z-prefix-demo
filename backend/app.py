@@ -132,7 +132,7 @@ def update_item(id):
 
     db.session.commit()
 
-    return jsonify({"message": "Item updated successfully"}), 200
+    return jsonify({"name": item.name, "description": item.description, "quantity": item.quantity}), 200
 
 
 # Delete Item Route (Authenticated)
