@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('authToken');
-    setIsAuthenticated(false); // Update state to trigger re-render
+    setIsAuthenticated(false);
   };
 
   return (
