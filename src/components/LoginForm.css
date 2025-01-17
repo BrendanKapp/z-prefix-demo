@@ -1,0 +1,69 @@
+@import '../colors.css';
+
+/* Container for the login form */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.login-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+/* Form styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for the input groups (fields + labels) */
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--input-border);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus styling for inputs */
+.input-group input:focus {
+  border-color: var(--input-focus-border);
+  outline: none;
+}
+
+/* Button styling */
+.login-button {
+  background-color: var(--button-background);
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for the button */
+.login-button:hover {
+  background-color: var(--button-hover-background);
+  transform: scale(1.05);
+}
