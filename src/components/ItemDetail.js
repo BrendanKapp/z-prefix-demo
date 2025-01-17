@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
-const ItemDetail = ({ match }) => {
+const ItemDetail = () => {
   const [item, setItem] = useState(null);
-  const { id } = match.params;
+  const { id } = useParams();
 
   useEffect(() => {
     axios.get(`/api/items/${id}`)
@@ -23,4 +24,3 @@ const ItemDetail = ({ match }) => {
 };
 
 export default ItemDetail;
-
