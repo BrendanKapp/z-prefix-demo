@@ -1,0 +1,39 @@
+:root {
+    /* Primary Color */
+    --primary-color: #00B8A9; /* Soft Teal */
+    --primary-light: #5AB9EA; /* Lighter Teal */
+  
+  /* Accent Colors */
+    --accent-color: #FF6B6B; /* Coral/Peach */
+    --accent-light: #FF8C8C; /* Lighter Coral */
+  
+  /* Background Colors */
+    --background-light: #F4F4F9; /* Light Gray */
+    --background-dark: #333333; /* Dark Gray for text */
+  
+  /* Text Colors */
+    --text-primary: #333333; /* Dark Gray */
+    --text-secondary: #666666; /* Medium Gray for secondary text */
+    --text-light: #F9F9F9; /* Light Text for dark backgrounds */
+  
+  /* Border and Shadow Colors */
+    --border-color: #ddd; /* Light border color */
+    --shadow-light: rgba(0, 0, 0, 0.1); /* Light shadow */
+    --shadow-dark: rgba(0, 0, 0, 0.2); /* Darker shadow for hover effects */
+  
+  /* Button Colors */
+    --button-background: var(--primary-color);
+    --button-text: white;
+    --button-hover-background: #009C8F; /* Darker Teal for hover */
+  
+  /* Form and Input Colors */
+    --input-border: #ddd; /* Light input border */
+    --input-focus-border: var(--primary-color); /* Focused input border */
+  
+  /* Navigation Bar */
+    --navbar-background: #333333; /* Dark background for navbar */
+    --navbar-text: white;
+    --navbar-hover: #FF6B6B; /* Hover color for navbar links */
+  }
+  
+  
