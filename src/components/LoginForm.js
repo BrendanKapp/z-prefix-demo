@@ -13,7 +13,7 @@ const LoginForm = () => {
     axios.post('/api/login', { email, password })
       .then(response => {
         localStorage.setItem('authToken', response.data.authToken);
-        navigate('/');
+        navigate('/inventory');
       })
       .catch(error => console.log(error));
   };
