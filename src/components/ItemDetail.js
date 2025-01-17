@@ -65,6 +65,26 @@ const ItemDetail = () => {
     setIsEditMode(false);
   };
 
+  const handleDelete = () => {
+    const authToken = localStorage.getItem('authToken');
+  
+    if (!authToken) {
+      navigate('/login');
+      return;
+    }
+  
+    const headers = {
+      Authorization: `Bearer ${authToken}`,
+    };
+  
+    axios.delete(`/api/items/${id}`, { headers })
+      .then(response => {
+        console.log("Item deleted:", response.data);
+        navigate('/inventory');
+      });
+  };
+  
+
   const back = () => {
     navigate('/');
   };
@@ -107,6 +127,7 @@ const ItemDetail = () => {
       ) : (
         <>
           <button onClick={handleEdit}>Edit</button>
+          <button onClick={handleDelete} style={{ color: 'red' }}>Delete</button>
         </>
       )}
     </div>
