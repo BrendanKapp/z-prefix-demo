@@ -102,20 +102,13 @@ const ItemDetail = () => {
         />
       ) : item.name}</h1>
 
-      <p>
-        {isEditMode ? (
-          <textarea
-            name="description"
-            value={editedItem.description}
-            onChange={handleChange}
-          />
-        ) : isAuthenticated ? (
-          <>{item.name} - {item.description}</>
-        ) : (
-          <>{item.name} - {item.description.length > 100 ? item.description.slice(0, 100) + '...' : item.description}</>
-        )}
-      </p>
-
+      <p>{isEditMode ? (
+        <textarea
+          name="description"
+          value={editedItem.description}
+          onChange={handleChange}
+        />
+      ) : item.description}</p>
 
       <p>Quantity: {isEditMode ? (
         <input
