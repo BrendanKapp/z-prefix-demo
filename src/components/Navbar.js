@@ -11,6 +11,14 @@ const NavBar = () => {
     logout(); 
     navigate('/');
   };
+  const login = () => {
+    logout(); 
+    navigate('/login');
+  };
+  const register = () => {
+    logout(); 
+    navigate('/register');
+  };
 
   return (
     <nav className="navbar">
@@ -28,8 +36,8 @@ const NavBar = () => {
           </>
         ) : (
           <>
-            <li><Link to="/login" className="navbar-button">Login</Link></li>
-            <li><Link to="/register" className="navbar-button">Register</Link></li>
+            <li><button onClick={login} className="navbar-button">Login</button></li>
+            <li><button onClick={register} className="navbar-button">Register</button></li>
           </>
         )}
       </ul>
