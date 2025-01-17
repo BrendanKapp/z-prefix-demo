@@ -23,21 +23,24 @@ import RegisterForm from './components/RegisterForm';
 import ItemForm from './components/private/ItemForm';
 import PrivateRoute from './components/PrivateRoute';
 import Inventory from './components/private/Inventory';
+import AuthProvider from './components/auth/AuthProvider.js';
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<ItemList />} />
-        <Route path="/items/:id" element={<ItemDetail />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/add-item" element={<PrivateRoute element={<ItemForm />} />} />
-        <Route path="/edit-item/:id" element={<PrivateRoute element={<ItemDetail />} />} />
-        <Route path="/inventory" element={<Inventory />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ItemList />} />
+          <Route path="/items/:id" element={<ItemDetail />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/add-item" element={<PrivateRoute element={<ItemForm />} />} />
+          <Route path="/edit-item/:id" element={<PrivateRoute element={<ItemDetail />} />} />
+          <Route path="/inventory" element={<Inventory />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
