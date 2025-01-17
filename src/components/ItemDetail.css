@@ -1,0 +1,144 @@
+@import '../colors.css';
+
+/* Container for the item details */
+.item-detail-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Back Button */
+.back-button {
+  background-color: transparent;
+  color: var(--text-primary);
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+/* Title styling */
+.item-detail-title {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+/* Description and quantity */
+.item-description, .item-quantity {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Edit Inputs */
+.edit-input, .edit-textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--input-border);
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Focus on inputs */
+.edit-input:focus, .edit-textarea:focus {
+  border-color: var(--input-focus-border);
+  outline: none;
+}
+
+/* Button Group Styling */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+/* Edit button */
+.edit-button {
+  background-color: var(--button-background);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+/* Edit button hover effect */
+.edit-button:hover {
+  background-color: var(--button-hover-background);
+  transform: scale(1.05);
+}
+
+/* Save button */
+.save-button {
+  background-color: var(--button-background);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* Save button hover effect */
+.save-button:hover {
+  background-color: var(--button-hover-background);
+}
+
+/* Cancel button */
+.cancel-button {
+  background-color: var(--button-cancel-background);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* Cancel button hover effect */
+.cancel-button:hover {
+  background-color: var(--button-cancel-hover-background);
+}
+
+/* Delete button */
+.delete-button {
+  background-color: red;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* Delete button hover effect */
+.delete-button:hover {
+  background-color: darkred;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .item-detail-title {
+    font-size: 2rem;
+  }
+
+  .item-description, .item-quantity {
+    font-size: 1.1rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .edit-input, .edit-textarea {
+    font-size: 1rem;
+  }
+
+  .back-button {
+    font-size: 0.9rem;
+  }
+}

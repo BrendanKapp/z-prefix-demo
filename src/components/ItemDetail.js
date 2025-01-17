@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from './auth/AuthProvider';
+import './ItemDetail.css';
 
 const ItemDetail = () => {
   const [item, setItem] = useState(null);
@@ -85,51 +86,63 @@ const ItemDetail = () => {
   };
   
 
-  const back = () => {
+  const backToInventory = () => {
+    navigate('/inventory');
+  };
+  const backToItems = () => {
     navigate('/');
   };
 
   if (!item) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>{isEditMode ? (
+    <div className="item-detail-container">
+      {isAuthenticated ? (
+          <button className="back-button" onClick={backToInventory}>Back</button>
+      ) : (
+          <button className="back-button" onClick={backToItems}>Back</button>
+      )}
+      
+      <h1 className="item-detail-title">{isEditMode ? (
         <input
           type="text"
           name="name"
           value={editedItem.name}
           onChange={handleChange}
+          className="edit-input"
         />
       ) : item.name}</h1>
 
-      <p>{isEditMode ? (
+      <p className="item-description">{isEditMode ? (
         <textarea
           name="description"
           value={editedItem.description}
           onChange={handleChange}
+          className="edit-textarea"
         />
       ) : item.description}</p>
 
-      <p>Quantity: {isEditMode ? (
+      <p className="item-quantity">Quantity: {isEditMode ? (
         <input
           type="number"
           name="quantity"
           value={editedItem.quantity}
           onChange={handleChange}
+          className="edit-input"
         />
       ) : item.quantity}</p>
 
       {isAuthenticated ? (
         isEditMode ? (
-          <>
-            <button onClick={handleSave}>Save</button>
-            <button onClick={handleCancel}>Cancel</button>
-          </>
+          <div className="button-group">
+            <button onClick={handleSave} className="save-button">Save</button>
+            <button onClick={handleCancel} className="cancel-button">Cancel</button>
+          </div>
         ) : (
-          <>
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete} style={{ color: 'red' }}>Delete</button>
-          </>
+          <div className="button-group">
+            <button onClick={handleEdit} className="edit-button">Edit</button>
+            <button onClick={handleDelete} className="delete-button">Delete</button>
+          </div>
         )
       ) : null}
     </div>
