@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../auth/AuthProvider.js';
 
 const ItemForm = () => {
   const [name, setName] = useState('');
@@ -9,6 +10,8 @@ const ItemForm = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
+
+  const { isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     if (id) {
@@ -26,27 +29,26 @@ const ItemForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const itemData = { name, description, quantity };
-  
+
     const method = isEditMode ? 'put' : 'post';
     const url = isEditMode ? `/api/items/${id}` : '/api/items';
-  
-    const authToken = localStorage.getItem('authToken');
-    console.log(authToken);
 
-    if (!authToken) {
-      console.log("No token found");
+    if (!isAuthenticated) {
+      console.log("No token found or not authenticated");
+      logout();
       navigate('/login');
+      return;
     }
-  
+
+    const authToken = localStorage.getItem('authToken');
     const headers = {
       Authorization: `Bearer ${authToken}`,
     };
-  
+
     axios[method](url, itemData, { headers })
       .then(() => navigate('/'))
       .catch(error => console.log(error));
   };
-  
 
   return (
     <div>
@@ -82,4 +84,3 @@ const ItemForm = () => {
 };
 
 export default ItemForm;
-
