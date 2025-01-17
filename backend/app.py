@@ -79,6 +79,16 @@ def create_item():
 
     return jsonify({"message": "Item created successfully"}), 201
 
+# Get My Items Route (Private)
+@app.route('/api/inventory', methods=['GET'])
+@jwt_required()
+def get_inventory():
+    current_user_id = get_jwt_identity()
+    
+    items = Item.query.filter_by(user_id=current_user_id).all()
+    items_list = [{"id": item.id, "name": item.name, "description": item.description} for item in items]
+
+    return jsonify(items_list), 200
 
 # Get All Items Route (Public)
 @app.route('/api/items', methods=['GET'])

@@ -22,6 +22,7 @@ import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import ItemForm from './components/private/ItemForm';
 import PrivateRoute from './components/PrivateRoute';
+import Inventory from './components/private/Inventory';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/add-item" element={<PrivateRoute element={<ItemForm />} />} />
         <Route path="/edit-item/:id" element={<PrivateRoute element={<ItemDetail />} />} />
+        <Route path="/inventory" element={<Inventory />} />
       </Routes>
     </Router>
   );
