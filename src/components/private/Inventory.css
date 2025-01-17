@@ -1,0 +1,115 @@
+@import '../../colors.css';
+
+/* Container for the inventory page */
+.inventory-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Title styling */
+.inventory-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+/* Add Item Button */
+.add-item-button {
+  display: inline-block;
+  background-color: var(--button-background);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Add Item Button Hover */
+.add-item-button:hover {
+  background-color: var(--button-hover-background);
+  transform: scale(1.05);
+}
+
+/* List Styling */
+.inventory-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Item Card Styling */
+.inventory-item-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Item Card Hover Effect */
+.inventory-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Link Styling inside Item Card */
+.inventory-item-link {
+  display: block;
+  padding: 16px;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Title of each item */
+.inventory-item-name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* Item Description Styling */
+.inventory-item-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* No Items Message */
+.no-items-message {
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+/* Loading State Styling */
+.loading {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .inventory-title {
+    font-size: 2rem;
+  }
+
+  .inventory-list {
+    grid-template-columns: 1fr;
+  }
+
+  .add-item-button {
+    width: 100%;
+    text-align: center;
+  }
+}
