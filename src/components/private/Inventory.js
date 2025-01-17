@@ -31,6 +31,7 @@ const Inventory = () => {
   return (
     <div>
       <h1>My Items</h1>
+      <Link to={`/add-item`}>Add Item</Link>
       <ul>
         {items.length > 0 ? (
           items.map(item => (
