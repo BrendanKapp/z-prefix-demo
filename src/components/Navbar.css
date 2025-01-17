@@ -13,13 +13,14 @@
   z-index: 100;
 }
 
-/* Navbar link styles */
 .navbar-links {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 
 .navbar-links li {
   margin: 0 15px;
@@ -39,7 +40,6 @@
   transform: scale(1.05);
 }
 
-/* Button styling for logout */
 .navbar-button {
   background-color: var(--button-background);
   color: white;
