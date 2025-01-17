@@ -44,7 +44,6 @@ const NavBar = () => {
         <div>
           <li><button onClick={logout}>Logout</button></li>
           <li><Link to="/inventory">Inventory</Link></li>
-          <li><Link to="/">All Items</Link></li>
         </div>
       ) : (
         <>
@@ -52,6 +51,7 @@ const NavBar = () => {
           <li><Link to="/register">Register</Link></li>
         </>
       )}
+      <li><Link to="/">All Items</Link></li>
     </ul>
   );
 };

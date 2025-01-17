@@ -18,7 +18,7 @@ const ItemList = () => {
         {items.map(item => (
           <li key={item.id}>
             <Link to={`/items/${item.id}`}>
-              {item.name} - {item.description.slice(0, 100)}...
+            {item.name} - {item.description.length > 100 ? item.description.slice(0, 100) + '...' : item.description}
             </Link>
           </li>
         ))}
