@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from './auth/AuthProvider';
 import './LoginForm.css';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     axios.post('/api/login', { email, password })
       .then(response => {
-        localStorage.setItem('authToken', response.data.authToken);
+        const { authToken } = response.data;
+        login(authToken);
         navigate('/inventory');
       })
       .catch(error => console.log(error));
