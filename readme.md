@@ -6,7 +6,7 @@ Please see [stories.md](stories.md) for details on the stories this app is based
 
 ## Video Demo
 
-Please see the video demo to see the functionality.
+Please see the [video demo](video/demo.mp4) to see the full setup process and the app functionality.
 
 ## Design Decisions
 
