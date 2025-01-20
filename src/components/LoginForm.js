@@ -7,6 +7,7 @@ import './LoginForm.css';
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -14,12 +15,18 @@ const LoginForm = () => {
     e.preventDefault();
 
     axios.post('/api/login', { email, password })
-      .then(response => {
-        const { authToken } = response.data;
-        login(authToken);
-        navigate('/inventory');
-      })
-      .catch(error => console.log(error));
+    .then(response => {
+      const { authToken } = response.data;
+      login(authToken);
+      navigate('/inventory');
+    })
+    .catch(error => {
+      if (error.response && error.response.status === 401) {
+        setErrorMessage("Error: Invalid Login Credentials. Please try again.")
+      } else {
+        console.log(error);
+      }
+    });
   };
 
   return (
@@ -47,6 +54,7 @@ const LoginForm = () => {
           />
         </div>
         <button type="submit" className="login-button">Login</button>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
       </form>
     </div>
   );
