@@ -5,7 +5,12 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN apk add --no-cache tzdata
+ENV TZ=America/Denver
+
 COPY . /app/
+
+RUN python3 /app/populate.py
 
 EXPOSE 5000
 

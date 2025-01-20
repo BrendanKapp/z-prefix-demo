@@ -3,11 +3,15 @@ FROM node:18-alpine
 WORKDIR /app
 
 COPY package*.json /app/
+
 RUN npm install
 
-COPY . /app/
+COPY public /app/public
+COPY src /app/src
 
-EXPOSE 3001
+RUN sed -i 's|"http://localhost:5000"|"http://backend:5000"|' package.json
+
+EXPOSE 3000
 
 CMD ["npm", "start"]
 

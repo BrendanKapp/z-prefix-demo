@@ -21,6 +21,8 @@ services:
       - .:/app
     ports:
       - "3001:3001"
+    environment:
+      - REACT_APP_API_URL=backend:5000
     networks:
       - app-network
     depends_on:
