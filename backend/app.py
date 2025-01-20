@@ -22,8 +22,6 @@ def register():
     email = data.get('email')
     password = data.get('password')
 
-    print("LOG: register", email, password)
-
     if User.query.filter_by(email=email).first():
         return jsonify({"message": "User already exists"}), 400
 
@@ -44,16 +42,12 @@ def login():
     email = data.get('email')
     password = data.get('password')
 
-    print("LOG: login", email, password)
-
     user = User.query.filter_by(email=email).first()
 
     if not user or not check_password_hash(user.password, password):
         return jsonify({"message": "Invalid credentials"}), 401
 
     auth_token = create_access_token(identity=user.id)
-
-    print("LOG: Access Token:", auth_token)
 
     return jsonify(authToken=auth_token), 200
 
@@ -62,14 +56,11 @@ def login():
 @app.route('/api/items', methods=['POST'])
 @jwt_required()
 def create_item():
-    print("LOG: ", request.get_json())
     data = request.get_json()
 
     name = data.get('name')
     description = data.get('description')
     quantity = int(data.get('quantity'))
-
-    print("LOG: items", name, description, quantity)
 
     current_user_id = get_jwt_identity()
 
@@ -95,8 +86,6 @@ def get_inventory():
 def get_items():
     items = Item.query.all()
     items_list = [{"id": item.id, "name": item.name, "description": item.description[:100] + ('...' if len(item.description) > 100 else ''), "quantity": item.quantity} for item in items]
-
-    print("LOG: public items", items_list)
 
     return jsonify(items_list), 200
 
