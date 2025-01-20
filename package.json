@@ -2,7 +2,7 @@
   "name": "z-prefix",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://backend:5000",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/react": "^16.2.0",
     "axios": "^1.7.9",
