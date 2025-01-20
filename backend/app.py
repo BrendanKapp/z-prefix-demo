@@ -25,7 +25,7 @@ def register():
     if User.query.filter_by(email=email).first():
         return jsonify({"message": "User already exists"}), 400
 
-    hashed_password = generate_password_hash(password, method='sha256')
+    hashed_password = generate_password_hash(password)
     new_user = User(email=email, password=hashed_password)
 
     db.session.add(new_user)
@@ -84,8 +84,10 @@ def get_inventory():
 # Get All Items Route (Public)
 @app.route('/api/items', methods=['GET'])
 def get_items():
+    app.logger.error("Items")
     items = Item.query.all()
     items_list = [{"id": item.id, "name": item.name, "description": item.description[:100] + ('...' if len(item.description) > 100 else ''), "quantity": item.quantity} for item in items]
+    app.logger.error("Items", jsonify(items_list))
 
     return jsonify(items_list), 200
 
