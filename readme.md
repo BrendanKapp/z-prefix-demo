@@ -28,6 +28,7 @@ Backend:
 Frontend:
 1. Install Node packages `npm install`
 1. Start the frontend `npm start`
+1. Visit [http://localhost:3000](http://localhost:3000)
 
 ## Run (Prod Mode)
 
