@@ -6,6 +6,7 @@ import './RegisterForm.css';
 const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -13,7 +14,13 @@ const RegisterForm = () => {
 
     axios.post('/api/register', { email, password })
       .then(() => navigate('/login'))
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (error.response && error.response.status === 400) {
+          setErrorMessage("Error: User Already Exists. Please Login.")
+        } else {
+          console.log(error);
+        }
+      });
   };
 
   return (
@@ -41,6 +48,7 @@ const RegisterForm = () => {
           />
         </div>
         <button type="submit" className="register-button">Register</button>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
       </form>
     </div>
   );
