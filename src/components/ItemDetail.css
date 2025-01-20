@@ -92,7 +92,7 @@
 
 /* Cancel button */
 .cancel-button {
-  background-color: var(--button-cancel-background);
+  background-color: var(--button-background);
   color: white;
   padding: 12px 20px;
   border-radius: 6px;
@@ -102,7 +102,7 @@
 
 /* Cancel button hover effect */
 .cancel-button:hover {
-  background-color: var(--button-cancel-hover-background);
+  background-color: var(--button-hover-background);
 }
 
 /* Delete button */
