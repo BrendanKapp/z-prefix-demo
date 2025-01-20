@@ -82,6 +82,13 @@ const ItemDetail = () => {
       .then(response => {
         console.log("Item deleted:", response.data);
         navigate('/inventory');
+      })
+      .catch(error => {
+          if (error.response && error.response.status === 403) {
+            alert("You cannot delete an item you did not create!");
+          } else {
+            console.log(error.response)
+          }
       });
   };
   
